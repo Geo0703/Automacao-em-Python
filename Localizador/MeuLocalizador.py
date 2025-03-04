@@ -1,8 +1,13 @@
 import pyautogui as pt
 import keyboard as kd
+import mouse as ms
 import time as tm
-
-print('Pressione "1" para obter as coordenadas X e Y de um click, "2" para double click, "3" para botão direito, "e" para escrever um texto e "/" para fazer o comentario. Pressione = para parar.')
+ms.is_pressed("LEFT")
+print("""
+Para obter as coordenadas X e Y de um clique do mouse, basta clicar com o botão esquerdo ou direito no local desejado. 
+Se precisar de um clique duplo, pressione "2" antes de clicar. Para escrever texto, pressione "e" e comece a digitar. 
+Para adicionar um comentário, pressione "/" e escreva o comentário. 
+Para parar, pressione "=". Simples assim!""")
 
 try:
     while True:
@@ -16,18 +21,18 @@ Programa encerrado.
 Feito por: Geovane Augusto
 Git:Geo0703""")
             break
-        if kd.is_pressed('1'):
+        if ms.is_pressed("left"):
             tm.sleep(0.25)
             x, y = pt.position()
             print(f'pt.click({x},{y})')
-        if kd.is_pressed('2'):
-            tm.sleep(0.25)
-            x, y = pt.position()
-            print(f'pt.doubleClick({x},{y})')
-        if kd.is_pressed('3'):
+        if ms.is_pressed("right"):
             tm.sleep(0.25)
             x, y = pt.position()
             print(f'pt.rightClick({x},{y})')
+        if kd.is_pressed("2"):
+            tm.sleep(0.25)
+            x, y = pt.position()
+            print(f'pt.doubleClick({x},{y})')
         if kd.is_pressed('e'):
             A= input("#O que deseja escrever ")
             print("pt.write('"+A+"')")
@@ -39,4 +44,3 @@ except KeyboardInterrupt:
 Programa encerrado.
 Feito por: Geovane Augusto
 Git:Geo0703""")
-    
